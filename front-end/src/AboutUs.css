@@ -1,0 +1,39 @@
+.profile{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
+.profilePic{
+    border-radius: 20%;
+    transition: 2s;
+    background: radial-gradient(rgb(139, 208, 213), transparent);
+    border: 5px solid rgb(58, 64, 64);
+}
+.profileText{
+    border-radius: 2vw;
+    border: 5px solid rgb(58, 64, 64);
+    background: radial-gradient(rgb(139, 208, 213), transparent);
+    padding: 50px;
+    margin-left: 3vw;
+    transition: 2s;
+    
+}
+.name{
+    padding-bottom: 3vh;
+}
+.profileText:hover{
+    border-radius: 2vw;
+    border: 5px solid rgb(58, 64, 64);
+    padding: 50px;
+    margin-left: 3vw;
+    background-color:rgb(139, 208, 213);
+}
+.profilePic:hover{
+    box-shadow: 0rem 0rem 3rem var(rgb(139, 208, 213));
+    background-color:rgb(139, 208, 213);
+    border: 5px solid rgb(58, 64, 64);
+}

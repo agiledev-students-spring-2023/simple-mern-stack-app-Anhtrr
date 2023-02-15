@@ -21,6 +21,7 @@ mongoose
 // load the dataabase models we want to deal with
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
+const { About } = require('./models/About')
 
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
@@ -74,6 +75,45 @@ app.post('/messages/save', async (req, res) => {
     return res.status(400).json({
       error: err,
       status: 'failed to save the message to the database',
+    })
+  }
+})
+
+app.get('/about', async (req, res) => {
+  // load all messages from database
+  try {
+    const aboutStuff = await About.find({})
+    res.json({
+      About: aboutStuff,
+      status: 'all good',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve about content from the database',
+    })
+  }
+})
+
+// a route to handle logging out users
+app.post('/about', async (req, res) => {
+  // try to save the message to the database
+  try {   
+    const aboutStuff = await About.create({
+      name: req.body.name,
+      description: req.body.description,
+      imageURL: req.body.imageURL,
+    })
+    return res.json({
+      aboutStuff: aboutStuff,
+      status: 'all good',
+    })
+  } catch (err) {
+    console.error(err)
+    return res.status(400).json({
+      error: err,
+      status: 'failed to save add about content to the database',
     })
   }
 })
